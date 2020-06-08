@@ -1,3 +1,9 @@
+//to update this file, change to server directory, and:
+
+//git add .
+//git commit -am "updating"
+//git push heroku master
+
 const http = require('http');
 const cors = require('cors');
 const hostname = '127.0.0.1';
@@ -29,7 +35,6 @@ io.on('connection', (socket) => {
   socket.on('join', ({name, room}, callback) => {
     socket.join(room);
     AddUser(name, room, socket.id);
-    socket.broadcast.emit('message', {message: `TESTING has joined the room!`, name: name});
     socket.broadcast.emit('message', {message: `${name} has joined the room!`, name: name});
   })
 
