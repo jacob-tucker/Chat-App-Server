@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
   socket.on('join', ({name, room}, callback) => {
     socket.join(room);
     AddUser(name, room, socket.id);
-    console.log("hello!");
+    socket.broadcast.emit('message', {message: `TESTING has joined the room!`, name: name});
     socket.broadcast.emit('message', {message: `${name} has joined the room!`, name: name});
   })
 
