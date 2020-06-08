@@ -36,7 +36,6 @@ io.on('connection', (socket) => {
     socket.join(room);
     AddUser(name, room, socket.id);
     socket.broadcast.emit('message', {message: `${name} has joined the room!`, name: name});
-    socket.broadcast.emit('message', {message: `${name} has joined the room!`, name: name});
   })
 
   socket.on('disconnect', () => {
